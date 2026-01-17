@@ -1,16 +1,20 @@
 import './App.css'
 import LeftPanel from './LeftPanel'
 import RightPanel from './RightPanel'
+import { UserProvider } from './context/UserContext'
+
 function App() {
   return (
-    <div className="flex flex-row h-screen bg-[#F6F7F9]">
-      <div className="h-full">
-        <LeftPanel />
+    <UserProvider>
+      <div className="flex flex-row h-screen bg-[#F6F7F9]">
+        <div className="h-full">
+          <LeftPanel />
+        </div>
+        <div className="h-full">
+          <RightPanel />
+        </div>
       </div>
-      <div className="h-full">
-        <RightPanel />
-      </div>
-    </div>
+    </UserProvider>
   )
 }
 
