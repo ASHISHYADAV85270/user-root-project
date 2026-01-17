@@ -5,7 +5,7 @@ import type { ReactNode } from 'react';
 import firebase from '../../firebase.js';
 
 interface UserInfo {
-  accountType: 'personal' | 'business' | null;
+  accountType: 'Personal' | 'Business' | null;
   countryCode: string;
   mobileNumber: string;
   otp: string;

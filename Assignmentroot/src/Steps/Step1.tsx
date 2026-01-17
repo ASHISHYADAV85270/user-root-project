@@ -16,15 +16,15 @@ const Step1 = () => {
                 <AccountCard
                     label="Personal"
                     icon={UserIcon}
-                    selected={userInfo.accountType === "personal"}
-                    onClick={() => updateUserInfo({ accountType: "personal" })}
+                    selected={userInfo.accountType === "Personal"}
+                    onClick={() => updateUserInfo({ accountType: "Personal" })}
                 />
 
                 <AccountCard
                     label="Business"
                     icon={ShoppingBagIcon}
-                    selected={userInfo.accountType === "business"}
-                    onClick={() => updateUserInfo({ accountType: "business" })}
+                    selected={userInfo.accountType === "Business"}
+                    onClick={() => updateUserInfo({ accountType: "Business" })}
                 />
             </div>
         </>

@@ -4,11 +4,9 @@ import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import { useState } from 'react';
 const Step5 = () => {
-
     const { userInfo, updateUserInfo } = useUser();
     const [showPassword, setShowPassword] = useState(false);
     const passwordsMatch = userInfo.password === userInfo.confirmPassword;
-
     return (
         <>
             <h1 className="text-2xl font-semibold text-[#132C4A] w-[450px]">
@@ -40,7 +38,6 @@ const Step5 = () => {
                     />
                 </div>
                 <div className="flex flex-col gap-2">
-
                     <TextField
                         label="Confirm Password"
                         type={showPassword ? "text" : "password"}
