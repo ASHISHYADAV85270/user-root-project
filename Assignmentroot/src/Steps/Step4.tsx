@@ -6,7 +6,7 @@ const Step4 = () => {
   return (
     <>
       <h1 className="text-2xl font-semibold text-[#132C4A] w-[450px]">
-        Tell us your <span className="text-red-600">name</span>
+        What is your name?
       </h1>
 
       <div className="flex flex-col gap-4 w-[530px] mt-6">
@@ -16,7 +16,7 @@ const Step4 = () => {
             type="text"
             value={userInfo.firstName}
             onChange={(e) => updateUserInfo({ firstName: e.target.value })}
-            placeholder="Enter your first name"
+            placeholder="Oliver"
             className="px-4 py-3 border border-[#D9E0E6] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0054FD] focus:border-transparent"
           />
         </div>
@@ -26,7 +26,7 @@ const Step4 = () => {
             type="text"
             value={userInfo.lastName}
             onChange={(e) => updateUserInfo({ lastName: e.target.value })}
-            placeholder="Enter your last name"
+            placeholder="Last Name"
             className="px-4 py-3 border border-[#D9E0E6] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0054FD] focus:border-transparent"
           />
         </div>

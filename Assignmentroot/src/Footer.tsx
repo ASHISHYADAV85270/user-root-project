@@ -23,7 +23,7 @@ const Footer = () => {
 
   return (
     <div className='absolute bottom-10 w-[515px] flex justify-between items-center'>
-      <Button variant='contained'
+      <Button variant='outlined'
         disabled={currentStep === 0}
         onClick={handleBack}
       >

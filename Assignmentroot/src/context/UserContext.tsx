@@ -72,7 +72,6 @@ export const UserProvider = ({ children }: { children: ReactNode }) => {
 
   const sendOTP = async () => {
     try {
-      // Clean up old verifier (prevents "element has been removed" error)
       if (window.recaptchaVerifier) {
         window.recaptchaVerifier.clear();
         window.recaptchaVerifier = undefined;
@@ -120,7 +119,7 @@ export const UserProvider = ({ children }: { children: ReactNode }) => {
       case 1:
         return userInfo.mobileNumber.length === 10;
       case 2:
-        return userInfo.otp.length === 6;
+        return userInfo.otp.length === 4;
       case 3:
         return (
           userInfo.firstName.trim().length > 0 &&

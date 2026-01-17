@@ -10,17 +10,18 @@ const Step5 = () => {
     return (
         <>
             <h1 className="text-2xl font-semibold text-[#132C4A] w-[450px]">
-                Tell us your <span className="text-red-600">name</span>
+                Create Password for your account
             </h1>
 
             <div className="flex flex-col gap-4 w-[530px] mt-6">
                 <div className="flex flex-col gap-2">
                     <TextField
-                        label="Password"
+                        label="Enter new password"
                         type={showPassword ? "text" : "password"}
                         value={userInfo.password}
                         onChange={(e) => updateUserInfo({ password: e.target.value })}
                         fullWidth
+                        helperText='Must be atleast 6 characters'
                         slotProps={{
                             input: {
                                 endAdornment: (
@@ -39,15 +40,13 @@ const Step5 = () => {
                 </div>
                 <div className="flex flex-col gap-2">
                     <TextField
-                        label="Confirm Password"
+                        label="Confirm  password"
                         type={showPassword ? "text" : "password"}
                         value={userInfo.confirmPassword}
                         onChange={(e) => updateUserInfo({ confirmPassword: e.target.value })}
                         fullWidth
                         error={!passwordsMatch}
-                        helperText={
-                            !passwordsMatch ? "Passwords do not match" : ""
-                        }
+                        helperText='Both passwords must match'
                         slotProps={{
                             input: {
                                 endAdornment: (
