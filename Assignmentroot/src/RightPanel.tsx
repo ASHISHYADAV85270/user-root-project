@@ -13,14 +13,14 @@ const RightPanel = () => {
   const { userInfo, currentStep, goToStep } = useUser();
 
   return (
-    <div className="flex flex-col justify-center h-full p-10 font-rubik">
+    <div className="flex flex-col justify-center sm:h-full sm:p-10 p-3 font-rubik">
 
       <div className="flex justify-center">
         <LinearProgress variant="determinate" value={(currentStep + 1) * 20}
           sx={{ width: 550 }} />
       </div>
 
-      <div className="bg-white rounded-2xl p-10 w-auto shadow-sm h-[895px] relative">
+      <div className="bg-white rounded-2xl sm:p-10 p-3 w-auto shadow-sm sm:h-[895px] h-[500px] relative">
         {currentStep === 0 && <Step1 />}
         {currentStep === 1 && <Step2 />}
         {currentStep === 2 && <Step3 />}

@@ -6,11 +6,11 @@ import { UserProvider } from './context/UserContext'
 function App() {
   return (
     <UserProvider>
-      <div className="flex flex-row h-screen bg-[#F6F7F9]">
-        <div className="h-full">
+      <div className="flex sm:flex-row flex-col sm:h-screen bg-[#F6F7F9]">
+        <div className="h-full sm:w-1/2">
           <LeftPanel />
         </div>
-        <div className="h-full">
+        <div className="h-full sm:w-1/2">
           <RightPanel />
         </div>
       </div>

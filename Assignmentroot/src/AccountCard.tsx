@@ -11,7 +11,7 @@ const AccountCard = ({ label, icon: Icon, selected, onClick }: AccountCardProps)
             onClick={onClick}
             className={`
           flex items-center justify-between
-          border rounded-lg p-4 cursor-pointer
+          border rounded-lg sm:p-4 p-3 cursor-pointer
           transition-all duration-200
           ${selected
                     ? "border-[#0054FD]  text-[#0054FD]"

@@ -7,12 +7,12 @@ const Step1 = () => {
 
     return (
         <>
-            <h1 className="text-2xl font-normal text-[#132C4A] w-[450px]">
+            <span className="sm:text-2xl text-lg font-medium text-[#132C4A]">
                 To join us tell us{" "}
                 <span className="font-medium">what type of account</span> you are opening
-            </h1>
+            </span>
 
-            <div className="flex flex-col gap-4 w-[530px] mt-6">
+            <div className="flex flex-col gap-4 mt-6">
                 <AccountCard
                     label="Personal"
                     icon={UserIcon}

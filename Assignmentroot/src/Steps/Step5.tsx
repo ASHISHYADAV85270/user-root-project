@@ -9,11 +9,11 @@ const Step5 = () => {
     const passwordsMatch = userInfo.password === userInfo.confirmPassword;
     return (
         <>
-            <h1 className="text-2xl font-medium text-[#132C4A] w-[450px]">
+            <span className="sm:text-2xl text-lg font-medium text-[#132C4A]">
                 Create Password for your account
-            </h1>
+            </span>
 
-            <div className="flex flex-col gap-4 w-[530px] mt-6">
+            <div className="flex flex-col gap-4 mt-6">
                 <div className="flex flex-col gap-2">
                     <TextField
                         label="Enter new password"
