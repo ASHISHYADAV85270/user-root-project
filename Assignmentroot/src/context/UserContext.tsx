@@ -114,7 +114,7 @@ export const UserProvider = ({ children }: { children: ReactNode }) => {
       case 0:
         return userInfo.accountType !== null;
       case 1:
-        return userInfo.mobileNumber.length >= 10;
+        return userInfo.mobileNumber.length === 10;
       case 2:
         return userInfo.otp.length === 6;
       case 3:
