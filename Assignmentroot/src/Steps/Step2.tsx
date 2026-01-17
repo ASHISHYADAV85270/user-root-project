@@ -11,7 +11,7 @@ const Step2 = () => {
     return (
         <>
             <h1 className="text-2xl font-semibold text-[#132C4A] w-[450px]">
-                Enter your <span className="text-red-600">mobile number</span>
+                OTP Verification
             </h1>
 
             <div className="flex flex-col gap-4 w-[530px] mt-6">

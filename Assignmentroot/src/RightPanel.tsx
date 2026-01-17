@@ -10,7 +10,7 @@ const RightPanel = () => {
 
   return (
     <div className="flex flex-col justify-center h-full p-10 font-rubik">
-      <div className="bg-white rounded-2xl p-10 w-[708px] shadow-sm">
+      <div className="bg-white rounded-2xl p-10 w-auto shadow-sm">
         {currentStep === 0 && <Step1 />}
         {currentStep === 1 && <Step2 />}
         {currentStep === 2 && <Step3 />}

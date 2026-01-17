@@ -6,7 +6,7 @@ const Step3 = () => {
   return (
     <>
       <h1 className="text-2xl font-semibold text-[#132C4A] w-[450px]">
-        Enter <span className="text-red-600">OTP</span>
+        OPT Verification
       </h1>
 
       <div className="flex flex-col gap-4 w-[530px] mt-6">
