@@ -20,7 +20,6 @@ const Step4 = () => {
             className="px-4 py-3 border border-[#D9E0E6] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0054FD] focus:border-transparent"
           />
         </div>
-
         <div className="flex flex-col gap-2">
           <label className="text-sm font-medium text-gray-700">Last Name</label>
           <input

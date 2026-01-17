@@ -2,7 +2,7 @@ import { createContext, useContext, useState } from 'react';
 import type { ReactNode } from 'react';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore - firebase.js is a JavaScript file without type declarations
-import firebase from '../../firebase.js'; 
+import firebase from '../../firebase.js';
 
 interface UserInfo {
   accountType: 'personal' | 'business' | null;
@@ -11,6 +11,8 @@ interface UserInfo {
   otp: string;
   firstName: string;
   lastName: string;
+  password: string;
+  confirmPassword: string;
 }
 
 interface UserContextType {
@@ -32,16 +34,18 @@ export const UserProvider = ({ children }: { children: ReactNode }) => {
   const [userInfo, setUserInfo] = useState<UserInfo>({
     accountType: null,
     mobileNumber: '',
-    countryCode:'+91',
+    countryCode: '+91',
     otp: '',
     firstName: '',
     lastName: '',
+    password: '',
+    confirmPassword: ''
   });
 
   const [currentStep, setCurrentStep] = useState(0);
   const [otpSent, setOtpSent] = useState(false);
   const [confirmationResult, setConfirmationResult] =
-  useState<firebase.auth.ConfirmationResult | null>(null);
+    useState<firebase.auth.ConfirmationResult | null>(null);
 
 
   const updateUserInfo = (updates: Partial<UserInfo>) => {
@@ -55,7 +59,7 @@ export const UserProvider = ({ children }: { children: ReactNode }) => {
 
 
   const nextStep = () => {
-    setCurrentStep((prev) => Math.min(prev + 1, 4));
+    setCurrentStep((prev) => Math.min(prev + 1, 5));
   };
 
   const prevStep = () => {
@@ -73,28 +77,28 @@ export const UserProvider = ({ children }: { children: ReactNode }) => {
         window.recaptchaVerifier.clear();
         window.recaptchaVerifier = undefined;
       }
-  
+
       window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier(
         'recaptcha-container',
         { size: 'invisible' }
       );
-  
+
       const appVerifier = window.recaptchaVerifier;
-  
+
       const phone = `+${userInfo.mobileNumber}`; // must be E.164
-  
+
       const confirmation = await firebase
         .auth()
         .signInWithPhoneNumber(phone, appVerifier);
-  
+
       window.confirmationResult = confirmation;
       setOtpSent(true);
     } catch (err) {
       console.error('Error sending OTP:', err);
     }
   };
-  
-  
+
+
 
   const verifyOTP = async () => {
     try {
@@ -122,6 +126,8 @@ export const UserProvider = ({ children }: { children: ReactNode }) => {
           userInfo.firstName.trim().length > 0 &&
           userInfo.lastName.trim().length > 0
         );
+      case 4:
+        return userInfo.password.length && userInfo.password === userInfo.confirmPassword;
       default:
         return false;
     }
