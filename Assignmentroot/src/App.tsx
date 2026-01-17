@@ -14,6 +14,7 @@ function App() {
           <RightPanel />
         </div>
       </div>
+      <div id="recaptcha-container"></div>
     </UserProvider>
   )
 }
