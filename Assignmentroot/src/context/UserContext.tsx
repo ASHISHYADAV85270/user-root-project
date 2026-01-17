@@ -127,7 +127,7 @@ export const UserProvider = ({ children }: { children: ReactNode }) => {
           userInfo.lastName.trim().length > 0
         );
       case 4:
-        return userInfo.password.length && userInfo.password === userInfo.confirmPassword;
+        return userInfo.password.length !==0 && userInfo.password === userInfo.confirmPassword;
       default:
         return false;
     }
