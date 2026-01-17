@@ -11,6 +11,7 @@ interface UserInfo {
   otp: string;
   firstName: string;
   lastName: string;
+  email:string;
   password: string;
   confirmPassword: string;
 }
@@ -38,8 +39,9 @@ export const UserProvider = ({ children }: { children: ReactNode }) => {
     otp: '',
     firstName: '',
     lastName: '',
+    email:'',
     password: '',
-    confirmPassword: ''
+    confirmPassword: '',
   });
 
   const [currentStep, setCurrentStep] = useState(0);
@@ -111,7 +113,9 @@ export const UserProvider = ({ children }: { children: ReactNode }) => {
       return false;
     }
   };
-
+  const isValidEmail = (email: string) =>
+    /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  
   const canProceedToNextStep = () => {
     switch (currentStep) {
       case 0:
@@ -122,8 +126,7 @@ export const UserProvider = ({ children }: { children: ReactNode }) => {
         return userInfo.otp.length === 4;
       case 3:
         return (
-          userInfo.firstName.trim().length > 0 &&
-          userInfo.lastName.trim().length > 0
+          userInfo.firstName.trim().length > 0 &&   isValidEmail(userInfo.email)
         );
       case 4:
         return userInfo.password.length !==0 && userInfo.password === userInfo.confirmPassword;

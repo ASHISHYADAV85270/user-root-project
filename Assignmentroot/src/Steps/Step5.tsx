@@ -9,7 +9,7 @@ const Step5 = () => {
     const passwordsMatch = userInfo.password === userInfo.confirmPassword;
     return (
         <>
-            <h1 className="text-2xl font-semibold text-[#132C4A] w-[450px]">
+            <h1 className="text-2xl font-medium text-[#132C4A] w-[450px]">
                 Create Password for your account
             </h1>
 

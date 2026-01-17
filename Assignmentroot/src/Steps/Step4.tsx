@@ -5,7 +5,7 @@ const Step4 = () => {
 
   return (
     <>
-      <h1 className="text-2xl font-semibold text-[#132C4A] w-[450px]">
+      <h1 className="text-2xl font-medium text-[#132C4A] w-[450px]">
         What is your name?
       </h1>
 
@@ -27,6 +27,16 @@ const Step4 = () => {
             value={userInfo.lastName}
             onChange={(e) => updateUserInfo({ lastName: e.target.value })}
             placeholder="Last Name"
+            className="px-4 py-3 border border-[#D9E0E6] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0054FD] focus:border-transparent"
+          />
+        </div>
+        <div className="flex flex-col gap-2">
+          <label className="text-sm font-medium text-gray-700">Last Name</label>
+          <input
+            type="email"
+            value={userInfo.email}
+            onChange={(e) => updateUserInfo({ email: e.target.value })}
+            placeholder="Enter Your Email"
             className="px-4 py-3 border border-[#D9E0E6] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0054FD] focus:border-transparent"
           />
         </div>

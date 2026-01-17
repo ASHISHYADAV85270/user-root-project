@@ -10,7 +10,7 @@ const Step2 = () => {
 
     return (
         <>
-            <h1 className="text-2xl font-semibold text-[#132C4A] w-[450px]">
+            <h1 className="text-2xl font-medium text-[#132C4A] w-[450px]">
                 OTP Verification
             </h1>
 
