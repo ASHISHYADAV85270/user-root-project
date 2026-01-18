@@ -1,9 +1,6 @@
 import { useUser } from '../context/UserContext';
 import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore - firebase.js is a JavaScript file without type declarations
-import firebase from '../../firebase.js';
 
 const Step2 = () => {
     const { userInfo, updateUserInfo } = useUser();
