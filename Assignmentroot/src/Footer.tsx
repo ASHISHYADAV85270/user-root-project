@@ -2,7 +2,7 @@ import { Button } from '@mui/material';
 import { useUser } from './context/UserContext';
 
 const Footer = () => {
-  const { currentStep, prevStep, nextStep, canProceedToNextStep, sendOTP, otpSent } = useUser();
+  const { currentStep, prevStep, nextStep, canProceedToNextStep } = useUser();
 
   const handleBack = () => {
     if (currentStep > 0) {
@@ -11,10 +11,7 @@ const Footer = () => {
   };
 
   const handleContinue = () => {
-    if (currentStep === 1 && !otpSent) {
-      sendOTP();
-      nextStep();
-    } else if (canProceedToNextStep() && currentStep < 5) {
+   if (canProceedToNextStep() && currentStep < 5) {
       nextStep();
     }
   };
