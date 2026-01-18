@@ -1,4 +1,5 @@
 import DashboardImage from './assets/DashboardImage.png'
+import { Box } from '@mui/material';
 const LeftPanel = () => {
   return (
     <div className='flex flex-col justify-between h-full p-20'>
@@ -14,7 +15,22 @@ const LeftPanel = () => {
         </div>
       </div>
       <div className="dashboard-image">
-        <img src={DashboardImage} alt="Dashboard" width={600} height={380} className="object-cover" />
+        <Box
+          component="img"
+          src={DashboardImage}
+          alt="Dashboard"
+          sx={{
+            width: '100%',
+            maxWidth: {
+              xs: 320,
+              sm: 420,
+              md: 520,
+              lg: 600,
+            },
+            height: 'auto',
+            objectFit: 'cover',
+          }}
+        />
       </div>
     </div>
   )
