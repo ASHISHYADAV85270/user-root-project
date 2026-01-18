@@ -22,7 +22,7 @@ const Footer = () => {
   const isLastStep = currentStep === 5;
 
   return (
-    <div className='absolute bottom-10 w-[515px] flex justify-between items-center'>
+    <div className='flex justify-between items-center px-6 pb-6'>
       <Button variant='outlined'
         disabled={currentStep === 0}
         onClick={handleBack}

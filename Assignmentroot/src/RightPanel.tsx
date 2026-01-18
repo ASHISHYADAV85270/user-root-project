@@ -17,7 +17,15 @@ const RightPanel = () => {
 
       <div className="flex justify-center">
         <LinearProgress variant="determinate" value={(currentStep + 1) * 20}
-          sx={{ width: 550 }} />
+          sx={{
+            width: {
+              xs: '100%',
+              sm: 340,
+              md: 450,
+              lg: 500,
+            },
+          }}
+        />
       </div>
 
       <div className="bg-white rounded-2xl sm:p-10 p-3 w-auto shadow-sm sm:h-[895px] h-[500px] relative">
@@ -25,8 +33,10 @@ const RightPanel = () => {
         {currentStep === 1 && <Step2 />}
         {currentStep === 2 && <Step3 />}
         {currentStep === 3 && <Step4 />}
-        {(currentStep === 4 || currentStep === 5)  && <Step5 />}
-        <Footer />
+        {(currentStep === 4 || currentStep === 5) && <Step5 />}
+        <div className="w-full left-0 right-0 bottom-0 absolute ">
+          <Footer />
+        </div>
       </div>
       <Dialog open={currentStep === 5}>
         <div className="w-120 h-120 px-6 py-9 flex flex-col items-center gap-6" >
