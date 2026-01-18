@@ -16,7 +16,6 @@ interface UserInfo {
 interface UserContextType {
   userInfo: UserInfo;
   currentStep: number;
-  otpSent: boolean;
   updateUserInfo: (updates: Partial<UserInfo>) => void;
   nextStep: () => void;
   prevStep: () => void;
@@ -42,7 +41,6 @@ export const UserProvider = ({ children }: { children: ReactNode }) => {
   });
 
   const [currentStep, setCurrentStep] = useState(0);
-  const [otpSent, setOtpSent] = useState(false);
 
 
   const updateUserInfo = (updates: Partial<UserInfo>) => {
@@ -98,7 +96,6 @@ export const UserProvider = ({ children }: { children: ReactNode }) => {
       value={{
         userInfo,
         currentStep,
-        otpSent,
         updateUserInfo,
         nextStep,
         prevStep,
