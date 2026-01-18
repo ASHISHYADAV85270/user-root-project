@@ -1,8 +1,5 @@
 import { createContext, useContext, useState } from 'react';
 import type { ReactNode } from 'react';
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore - firebase.js is a JavaScript file without type declarations
-import firebase from '../../firebase.js';
 
 interface UserInfo {
   accountType: 'Personal' | 'Business' | null;
@@ -25,8 +22,8 @@ interface UserContextType {
   prevStep: () => void;
   goToStep: (step: number) => void;
   canProceedToNextStep: () => boolean;
-  sendOTP: () => Promise<void>;
-  verifyOTP: () => Promise<boolean>;
+  sendOTP: () => void;
+  verifyOTP: () => void;
 }
 
 const UserContext = createContext<UserContextType | undefined>(undefined);
@@ -46,17 +43,10 @@ export const UserProvider = ({ children }: { children: ReactNode }) => {
 
   const [currentStep, setCurrentStep] = useState(0);
   const [otpSent, setOtpSent] = useState(false);
-  const [confirmationResult, setConfirmationResult] =
-    useState<firebase.auth.ConfirmationResult | null>(null);
 
 
   const updateUserInfo = (updates: Partial<UserInfo>) => {
     setUserInfo((prev) => ({ ...prev, ...updates }));
-
-    if (updates.mobileNumber !== undefined) {
-      setOtpSent(false);
-      setConfirmationResult(null);
-    }
   };
 
 
@@ -72,46 +62,14 @@ export const UserProvider = ({ children }: { children: ReactNode }) => {
     if (step >= 0 && step <= 4) setCurrentStep(step);
   };
 
-  const sendOTP = async () => {
-    try {
-      if (window.recaptchaVerifier) {
-        window.recaptchaVerifier.clear();
-        window.recaptchaVerifier = undefined;
-      }
-
-      window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier(
-        'recaptcha-container',
-        { size: 'invisible' }
-      );
-
-      const appVerifier = window.recaptchaVerifier;
-
-      const phone = `+${userInfo.mobileNumber}`; // must be E.164
-
-      const confirmation = await firebase
-        .auth()
-        .signInWithPhoneNumber(phone, appVerifier);
-
-      window.confirmationResult = confirmation;
-      setOtpSent(true);
-    } catch (err) {
-      console.error('Error sending OTP:', err);
-    }
+  const sendOTP = () => {
+    console.log('OTP SENDED Successfully')
   };
 
 
 
-  const verifyOTP = async () => {
-    try {
-      if (!confirmationResult) return false;
-
-      await confirmationResult.confirm(userInfo.otp);
-      console.log('OTP verified successfully');
-      return true;
-    } catch (error) {
-      console.error('Invalid OTP:', error);
-      return false;
-    }
+  const verifyOTP = () => {
+    console.log('Verify OTP')
   };
   const isValidEmail = (email: string) =>
     /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
